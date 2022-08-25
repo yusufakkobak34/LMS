@@ -1,0 +1,54 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_Atama>
+
+@{
+    ViewBag.Title = "Dashboard > Tüm Atamalar";
+}
+
+@Html.ActionLink("Yeni Atama", "Create", null, new { @class = "btn btn-primary" })
+<hr />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Atama</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Atama İsmi
+                        </th>
+                        <th>
+                            Ölçü
+                        </th>
+                        <th>
+                           Kullanıcı
+                        </th>
+                        <th>Eylemler</th>
+                    </tr>
+                    </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.isim)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.olcu)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Kullanici.kullaniciAdi)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Düzenle", "Edit", new { id = item.id_Atama }, new {@class="btn btn-info"}) |
+                                @Html.ActionLink("Detaylar", "Details", new { id = item.id_Atama }, new {@class="btn btn-primary"}) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id_Atama })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+    </div>
+</div>

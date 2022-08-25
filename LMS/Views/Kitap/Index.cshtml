@@ -1,0 +1,79 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_Kitap>
+
+@{
+    ViewBag.Title = "Tüm Kitaplar";
+}
+
+<p>
+    @Html.ActionLink("Yeni Kitap", "Create", null, new { @class = "btn btn-success" })
+</p>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Kitap Listesi</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Kitap Başlığı
+                        </th>
+                        <th>
+                            Kısa Açıklama
+                        </th>
+                        <th>
+                            Kitap Adı
+                        </th>
+                        <th>
+                            Edisyon
+                        </th>
+                        <th>
+                            Departman
+                        </th>
+                        <th>
+                            Kitap Türü
+                        </th>
+                        <th>
+                            Kullanıcı
+                        </th>
+                        <th>Eylemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.kitapBaslik)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.kisaAciklama)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.kitapAdi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.edisyon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Departman.adi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_KitapTipi.isim)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Kullanici.kullaniciAdi)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Düzenle", "Edit", new { id = item.id_Kitap }, new { @class = "btn btn-info" }) |
+                                @Html.ActionLink("Detaylar", "Details", new { id = item.id_Kitap }, new { @class = "btn btn-primary" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

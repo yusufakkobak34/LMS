@@ -1,0 +1,87 @@
+﻿@model VeritabanıKatman.tbl_Calisan
+
+@{
+    ViewBag.Title = "Detaylar";
+}
+
+<div>
+   
+    <dl class="dl-horizontal">
+        <dt>
+            Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tamAdi)
+        </dd>
+
+        <dt>
+            Baba Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.babaAdi)
+        </dd>
+
+        <dt>
+            İletişim No
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iletisimNo)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            Adres
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adres)
+        </dd>
+
+        <dt>
+            Durum
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aktifMi)
+        </dd>
+
+        <dt>
+            Açıklama
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aciklama)
+        </dd>
+
+        <dt>
+            Atama
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Atama.isim)
+        </dd>
+
+        <dt>
+            Departman
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Departman.adi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.id_Calisan }, new {@class="btn btn-primary"}) 
+    @Html.ActionLink("Geri Dön", "Index", null, new {@class="btn btn-default"})
+</p>

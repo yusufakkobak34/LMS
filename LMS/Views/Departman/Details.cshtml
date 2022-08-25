@@ -1,0 +1,34 @@
+﻿@model VeritabanıKatman.tbl_Departman
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_Departman</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_Kullanici.kullaniciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Kullanici.kullaniciAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Departman }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

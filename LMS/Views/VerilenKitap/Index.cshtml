@@ -1,0 +1,99 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_VerilenKitap>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.verilenKopya)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.verilisTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.donusTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.durum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rezerveKopya)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_Calisan.tamAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_Kitap.kitapBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_Kitap1.kitapBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_Kitap2.kitapBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_Kullanici.kullaniciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_Kullanici1.kullaniciAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Calisan.tamAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Kitap.kitapBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.verilenKopya)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.verilisTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.donusTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.durum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rezerveKopya)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Kitap1.kitapBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Kitap2.kitapBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Kullanici.kullaniciAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Kullanici1.kullaniciAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_VerilenKitap }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id_VerilenKitap }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id_VerilenKitap })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,139 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_SatinAlinanDetay>
+
+@{
+    ViewBag.Title = "Yeni Satın Alım";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+@using (Html.BeginForm("UrunEkle", "SatinAlim", FormMethod.Post, null))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    
+    <h4>Satın Alım Detayları</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Kitap Seç</label>
+        <div class="col-md-6">
+            <select class="form-control" id="BID" name="BID" required></select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Adet</label>
+        <div class="col-md-6">
+            <input type="number" class="form-control" id="adet" name="adet" placeholder="Adet giriniz.." required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Birim Fiyat</label>
+        <div class="col-md-6">
+            <input type="number" class="form-control" id="fiyat" step=".01" name="fiyat" placeholder="Birim fiyat giriniz..." required />
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Urun Ekle" class="btn btn-success" />
+            </div>
+        </div>        
+      </div>
+    </div>
+    }
+
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Satın Alım Listesi</h6>
+            <h3 class="text-danger">@ViewBag.Message</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                Kitap
+                            </th>
+                            <th>
+                                Satın Alım Adedi
+                            </th>
+                            <th>
+                                Birim Fiyat
+                            </th>
+                            <th>
+                                Ürün Tutarı
+                            </th>
+                            <th>Eylemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tbl_Kitap.kitapAdi)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.adet)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.birimFiyat)
+                                </td>
+                                <td>
+                                    @(string.Format("{0:0}", Math.Truncate(item.adet * item.birimFiyat * 10) / 10))
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Sil", "DeleteConfirm", new { id = item.id_SatinAlinan }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <td></td>
+                            <td></td>
+
+                            <td style="background-color:black; color:white;">Toplam Tutar</td>
+                            <td style="background-color:black; color:white;">
+                                @(string.Format("{0:0}", Math.Truncate(ViewBag.ToplamTutar * 10) / 10)) TL
+                            </td>
+                            <td></td>
+
+                        </tr>
+                    </tfoot>
+                </table>
+                <div style="margin-top:20px; float:right">
+                    @Html.ActionLink("İleri", "SaticiSec", null, new { @class = "btn btn-success", style = "padding:20px;" })
+                    @Html.ActionLink("İptal", "SatinAlimIptal", null, new { @class = "btn btn-danger", style = "padding:20px;" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $.ajax({
+            url: '@Url.Action("KitapGetir", "SatinAlim")',
+            type: 'GET',
+            data: "{}",
+            success: function (response) {
+                for (var i = 0; i < response.data.length; i++)
+                {
+                    $('#BID').append("<option value=" + response.data[i].id_Kitap + ">" + response.data[i].kitapAdi + "</option>");
+                }
+            },
+            error: function () {
+            }
+        });
+    });
+    </script>

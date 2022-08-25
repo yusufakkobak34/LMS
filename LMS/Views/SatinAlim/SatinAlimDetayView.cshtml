@@ -1,0 +1,55 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_SatinAlimDetay>
+
+@{
+    ViewBag.Title = "Satın Alım Detay";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Tüm Satın Alımlar</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.tbl_Kitap.kitapBaslik)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.adet)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.birimFiyat)
+                        </th>
+                        <th>
+                            Kitap Tutarı
+                        </th>
+
+                        <th></th>
+                    </tr>
+                <thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Kitap.kitapBaslik)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.adet)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.birimFiyat)
+                            </td>
+                            <td>
+                                @(string.Format("{0:0}", Math.Truncate(item.adet * item.birimFiyat * 10) / 10))
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

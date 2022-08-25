@@ -1,0 +1,64 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_KitapDonus>
+
+@{
+    ViewBag.Title = "Dönen Tüm  Kitaplar";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Rezerve Kitaplar</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Veriliş Tarihi
+                        </th>
+                        <th>
+                            Dönüş Tarihi
+                        </th>
+                        <th>
+                            Geçerli Tarih
+                        </th>
+                        <th>
+                            Çalışan
+                        </th>
+                        <th>
+                            Kullanıcı Adı
+                        </th>
+                        <th>Eylemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.verilisTarihi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.donusTarihi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.gecerliTarih)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Calisan.tamAdi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Kullanici.kullaniciAdi)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Detaylar", "Details", new { id = item.id_KitapDonus }, new { @class = "btn btn-info" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,111 @@
+﻿@model VeritabanıKatman.tbl_Kitap
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Kitap Başlığı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kitapBaslik)
+        </dd>
+
+        <dt>
+            Kısa Açıklama
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kisaAciklama)
+        </dd>
+
+        <dt>
+            Yazar
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yazar)
+        </dd>
+
+        <dt>
+            Kitap Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kitapAdi)
+        </dd>
+
+        <dt>
+            Edisyon
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edisyon)
+        </dd>
+
+        <dt>
+            Toplam Kopya
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.toplamKopya)
+        </dd>
+
+        <dt>
+            Kayıt Tarihi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kayitTarihi)
+        </dd>
+
+        <dt>
+            Fiyat
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fiyat)
+        </dd>
+
+        <dt>
+            Açıklama
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aciklama)
+        </dd>
+
+        <dt>
+            Departman
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Departman.adi)
+        </dd>
+
+        <dt>
+            Kitap Tipi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_KitapTipi.isim)
+        </dd>
+
+        <dt>
+           Kullanıcı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Kullanici.kullaniciAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.id_Kitap }, new {@class="btn btn-info"}) |
+    @Html.ActionLink("Geri Dön", "Index", null, new {@class="btn btn-default"})
+</p>

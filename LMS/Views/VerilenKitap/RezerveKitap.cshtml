@@ -1,0 +1,88 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_VerilenKitap>
+
+@{
+    ViewBag.Title = "Rezerve Kitaplar";
+}
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Rezerve Kitaplar</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Kitap Başlığı
+                        </th>
+                        <th>
+                            Çalışan
+                        </th>
+                        <th>
+                            Verilen Kopya
+                        </th>
+                        <th>
+                            Veriliş Tarihi
+                        </th>
+                        <th>
+                            Dönüş Tarihi
+                        </th>
+                        <th>
+                            Durum
+                        </th>
+                        <th>
+                            Rezerve Kopya
+                        </th>
+                        <th>
+                            Açıklama
+                        </th>
+                        <th>
+                            Kullanıcı
+                        </th>
+                        <th>Eylemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Kitap.kitapBaslik)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Calisan.tamAdi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.verilenKopya)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.verilisTarihi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.donusTarihi)
+                            </td>
+                            <td>
+                                <p class="text-success" style="font:bold">Rezerve</p>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.rezerveKopya)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.aciklama)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Kullanici.kullaniciAdi)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Kitap Dönüş", "KitapDonus", new { id = item.id_VerilenKitap }, new {@class="btn btn-primary"}) 
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+            </div>
+        </div>
+

@@ -1,0 +1,55 @@
+﻿@model VeritabanıKatman.tbl_KitapDonus
+
+@{
+    ViewBag.Title = "Detaylar";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Veriliş Tarihi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.verilisTarihi)
+        </dd>
+
+        <dt>
+            Dönüş Tarihi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.donusTarihi)
+        </dd>
+
+        <dt>
+            Geçerli Tarih
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gecerliTarih)
+        </dd>
+
+        <dt>
+            Çalışan
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Calisan.tamAdi)
+        </dd>
+
+        <dt>
+            Kullanıcı Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Kullanici.kullaniciAdi)
+        </dd>
+
+       
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Geri Dön", "Index", null, new {@class="btn btn-primary"})
+</p>

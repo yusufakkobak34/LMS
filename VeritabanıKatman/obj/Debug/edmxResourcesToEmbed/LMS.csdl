@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KutuphaneOtomasyonSistemiDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="KutuphaneOtomasyonSistemiDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="KutuphaneOtomasyonSistemiDBModel.sysdiagram" />
+    <EntitySet Name="tbl_Atama" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Atama" />
+    <EntitySet Name="tbl_Calisan" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Calisan" />
+    <EntitySet Name="tbl_Departman" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Departman" />
+    <EntitySet Name="tbl_Kitap" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" />
+    <EntitySet Name="tbl_KitapCeza" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_KitapCeza" />
+    <EntitySet Name="tbl_KitapDonus" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_KitapDonus" />
+    <EntitySet Name="tbl_KitapTipi" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_KitapTipi" />
+    <EntitySet Name="tbl_Kullanici" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" />
+    <EntitySet Name="tbl_KullaniciTipi" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_KullaniciTipi" />
+    <EntitySet Name="tbl_Satici" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Satici" />
+    <EntitySet Name="tbl_SatinAlim" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlim" />
+    <EntitySet Name="tbl_SatinAlimDetay" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlimDetay" />
+    <EntitySet Name="tbl_SatinAlinanDetay" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlinanDetay" />
+    <EntitySet Name="tbl_VerilenKitap" EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_VerilenKitap" />
+    <AssociationSet Name="FK_tbl_Atama_tbl_Kullanici" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Atama_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_Atama" EntitySet="tbl_Atama" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Calisan_tbl_Atama1" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Calisan_tbl_Atama1">
+      <End Role="tbl_Atama" EntitySet="tbl_Atama" />
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Calisan_tbl_Departman" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Calisan_tbl_Departman">
+      <End Role="tbl_Departman" EntitySet="tbl_Departman" />
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_KitapCeza_tbl_Calisan" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapCeza_tbl_Calisan">
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+      <End Role="tbl_KitapCeza" EntitySet="tbl_KitapCeza" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_KitapDonus_tbl_Calisan" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Calisan">
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+      <End Role="tbl_KitapDonus" EntitySet="tbl_KitapDonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kullanici_tbl_Calisan1" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kullanici_tbl_Calisan1">
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Calisan" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Calisan">
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Departman_tbl_Kullanici" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Departman_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_Departman" EntitySet="tbl_Departman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kitap_tbl_Departman" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_Departman">
+      <End Role="tbl_Departman" EntitySet="tbl_Departman" />
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kitap_tbl_KitapTipi" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_KitapTipi">
+      <End Role="tbl_KitapTipi" EntitySet="tbl_KitapTipi" />
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kitap_tbl_Kullanici" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlimDetay_tbl_Kitap" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlimDetay_tbl_Kitap">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_SatinAlimDetay" EntitySet="tbl_SatinAlimDetay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlinanDetay_tbl_Kitap" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlinanDetay_tbl_Kitap">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_SatinAlinanDetay" EntitySet="tbl_SatinAlinanDetay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kitap" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kitap1" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap1">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kitap2" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap2">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_KitapDonus_tbl_Kullanici" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_KitapDonus" EntitySet="tbl_KitapDonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_KitapDonus_tbl_Kullanici1" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Kullanici1">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_KitapDonus" EntitySet="tbl_KitapDonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kullanici_tbl_KullaniciTipi1" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kullanici_tbl_KullaniciTipi1">
+      <End Role="tbl_KullaniciTipi" EntitySet="tbl_KullaniciTipi" />
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Satici_tbl_Kullanici" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Satici_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_Satici" EntitySet="tbl_Satici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlim_tbl_Kullanici" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlim_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_SatinAlim" EntitySet="tbl_SatinAlim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kullanici" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kullanici1" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kullanici1">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlim_tbl_Satici" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlim_tbl_Satici">
+      <End Role="tbl_Satici" EntitySet="tbl_Satici" />
+      <End Role="tbl_SatinAlim" EntitySet="tbl_SatinAlim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlimDetay_tbl_SatinAlim" Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlimDetay_tbl_SatinAlim">
+      <End Role="tbl_SatinAlim" EntitySet="tbl_SatinAlim" />
+      <End Role="tbl_SatinAlimDetay" EntitySet="tbl_SatinAlimDetay" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Atama">
+    <Key>
+      <PropertyRef Name="id_Atama" />
+    </Key>
+    <Property Name="id_Atama" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="isim" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <Property Name="olcu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Kullanici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Atama_tbl_Kullanici" FromRole="tbl_Atama" ToRole="tbl_Kullanici" />
+    <NavigationProperty Name="tbl_Calisan" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Calisan_tbl_Atama1" FromRole="tbl_Atama" ToRole="tbl_Calisan" />
+  </EntityType>
+  <EntityType Name="tbl_Calisan">
+    <Key>
+      <PropertyRef Name="id_Calisan" />
+    </Key>
+    <Property Name="id_Calisan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <Property Name="tamAdi" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="babaAdi" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="iletisimNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="adres" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="id_Atama" Type="Int32" Nullable="false" />
+    <Property Name="id_Departman" Type="Int32" Nullable="false" />
+    <Property Name="aktifMi" Type="Boolean" Nullable="false" />
+    <Property Name="aciklama" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Atama" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Calisan_tbl_Atama1" FromRole="tbl_Calisan" ToRole="tbl_Atama" />
+    <NavigationProperty Name="tbl_Departman" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Calisan_tbl_Departman" FromRole="tbl_Calisan" ToRole="tbl_Departman" />
+    <NavigationProperty Name="tbl_KitapCeza" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapCeza_tbl_Calisan" FromRole="tbl_Calisan" ToRole="tbl_KitapCeza" />
+    <NavigationProperty Name="tbl_KitapDonus" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Calisan" FromRole="tbl_Calisan" ToRole="tbl_KitapDonus" />
+    <NavigationProperty Name="tbl_Kullanici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kullanici_tbl_Calisan1" FromRole="tbl_Calisan" ToRole="tbl_Kullanici" />
+    <NavigationProperty Name="tbl_VerilenKitap" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Calisan" FromRole="tbl_Calisan" ToRole="tbl_VerilenKitap" />
+  </EntityType>
+  <EntityType Name="tbl_Departman">
+    <Key>
+      <PropertyRef Name="id_Departman" />
+    </Key>
+    <Property Name="id_Departman" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adi" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Calisan" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Calisan_tbl_Departman" FromRole="tbl_Departman" ToRole="tbl_Calisan" />
+    <NavigationProperty Name="tbl_Kullanici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Departman_tbl_Kullanici" FromRole="tbl_Departman" ToRole="tbl_Kullanici" />
+    <NavigationProperty Name="tbl_Kitap" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_Departman" FromRole="tbl_Departman" ToRole="tbl_Kitap" />
+  </EntityType>
+  <EntityType Name="tbl_Kitap">
+    <Key>
+      <PropertyRef Name="id_Kitap" />
+    </Key>
+    <Property Name="id_Kitap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <Property Name="id_Departman" Type="Int32" Nullable="false" />
+    <Property Name="id_KitapTipi" Type="Int32" Nullable="false" />
+    <Property Name="kitapBaslik" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="kisaAciklama" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="yazar" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="kitapAdi" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="edisyon" Type="Double" Nullable="false" />
+    <Property Name="toplamKopya" Type="Int32" Nullable="false" />
+    <Property Name="kayitTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fiyat" Type="Double" Nullable="false" />
+    <Property Name="aciklama" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Departman" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_Departman" FromRole="tbl_Kitap" ToRole="tbl_Departman" />
+    <NavigationProperty Name="tbl_KitapTipi" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_KitapTipi" FromRole="tbl_Kitap" ToRole="tbl_KitapTipi" />
+    <NavigationProperty Name="tbl_Kullanici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_Kullanici" FromRole="tbl_Kitap" ToRole="tbl_Kullanici" />
+    <NavigationProperty Name="tbl_SatinAlimDetay" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlimDetay_tbl_Kitap" FromRole="tbl_Kitap" ToRole="tbl_SatinAlimDetay" />
+    <NavigationProperty Name="tbl_SatinAlinanDetay" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlinanDetay_tbl_Kitap" FromRole="tbl_Kitap" ToRole="tbl_SatinAlinanDetay" />
+    <NavigationProperty Name="tbl_VerilenKitap" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap" FromRole="tbl_Kitap" ToRole="tbl_VerilenKitap" />
+    <NavigationProperty Name="tbl_VerilenKitap1" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap1" FromRole="tbl_Kitap" ToRole="tbl_VerilenKitap" />
+    <NavigationProperty Name="tbl_VerilenKitap2" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap2" FromRole="tbl_Kitap" ToRole="tbl_VerilenKitap" />
+  </EntityType>
+  <EntityType Name="tbl_KitapCeza">
+    <Key>
+      <PropertyRef Name="id_KitapCeza" />
+    </Key>
+    <Property Name="id_KitapCeza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Calisan" Type="Int32" Nullable="false" />
+    <Property Name="id_Kitap" Type="Int32" Nullable="false" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <Property Name="cezaTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="cezaMiktar" Type="Double" Nullable="false" />
+    <Property Name="kalanMiktar" Type="Double" Nullable="false" />
+    <Property Name="kalanGun" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Calisan" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapCeza_tbl_Calisan" FromRole="tbl_KitapCeza" ToRole="tbl_Calisan" />
+  </EntityType>
+  <EntityType Name="tbl_KitapDonus">
+    <Key>
+      <PropertyRef Name="id_KitapDonus" />
+    </Key>
+    <Property Name="id_KitapDonus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <Property Name="id_Kitap" Type="Int32" Nullable="false" />
+    <Property Name="id_Calisan" Type="Int32" Nullable="false" />
+    <Property Name="verilisTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="donusTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="gecerliTarih" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tbl_Calisan" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Calisan" FromRole="tbl_KitapDonus" ToRole="tbl_Calisan" />
+    <NavigationProperty Name="tbl_Kullanici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Kullanici" FromRole="tbl_KitapDonus" ToRole="tbl_Kullanici" />
+    <NavigationProperty Name="tbl_Kullanici1" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Kullanici1" FromRole="tbl_KitapDonus" ToRole="tbl_Kullanici" />
+  </EntityType>
+  <EntityType Name="tbl_KitapTipi">
+    <Key>
+      <PropertyRef Name="id_KitapTipi" />
+    </Key>
+    <Property Name="id_KitapTipi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="isim" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Kitap" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_KitapTipi" FromRole="tbl_KitapTipi" ToRole="tbl_Kitap" />
+  </EntityType>
+  <EntityType Name="tbl_Kullanici">
+    <Key>
+      <PropertyRef Name="id_Kullanici" />
+    </Key>
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_KullaniciTipi" Type="Int32" Nullable="false" />
+    <Property Name="kullaniciAdi" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="sifre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_Calisan" Type="Int32" Nullable="false" />
+    <Property Name="aktifMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tbl_Atama" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Atama_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_Atama" />
+    <NavigationProperty Name="tbl_Calisan" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kullanici_tbl_Calisan1" FromRole="tbl_Kullanici" ToRole="tbl_Calisan" />
+    <NavigationProperty Name="tbl_Departman" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Departman_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_Departman" />
+    <NavigationProperty Name="tbl_Kitap" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_Kitap" />
+    <NavigationProperty Name="tbl_KitapDonus" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_KitapDonus" />
+    <NavigationProperty Name="tbl_KitapDonus1" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Kullanici1" FromRole="tbl_Kullanici" ToRole="tbl_KitapDonus" />
+    <NavigationProperty Name="tbl_KullaniciTipi" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kullanici_tbl_KullaniciTipi1" FromRole="tbl_Kullanici" ToRole="tbl_KullaniciTipi" />
+    <NavigationProperty Name="tbl_Satici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Satici_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_Satici" />
+    <NavigationProperty Name="tbl_SatinAlim" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlim_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_SatinAlim" />
+    <NavigationProperty Name="tbl_VerilenKitap" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kullanici" FromRole="tbl_Kullanici" ToRole="tbl_VerilenKitap" />
+    <NavigationProperty Name="tbl_VerilenKitap1" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kullanici1" FromRole="tbl_Kullanici" ToRole="tbl_VerilenKitap" />
+  </EntityType>
+  <EntityType Name="tbl_KullaniciTipi">
+    <Key>
+      <PropertyRef Name="id_KullaniciTipi" />
+    </Key>
+    <Property Name="id_KullaniciTipi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullaniciTipi" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Kullanici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kullanici_tbl_KullaniciTipi1" FromRole="tbl_KullaniciTipi" ToRole="tbl_Kullanici" />
+  </EntityType>
+  <EntityType Name="tbl_Satici">
+    <Key>
+      <PropertyRef Name="id_Satici" />
+    </Key>
+    <Property Name="id_Satici" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <Property Name="iletisimNo" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="aciklama" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Kullanici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Satici_tbl_Kullanici" FromRole="tbl_Satici" ToRole="tbl_Kullanici" />
+    <NavigationProperty Name="tbl_SatinAlim" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlim_tbl_Satici" FromRole="tbl_Satici" ToRole="tbl_SatinAlim" />
+  </EntityType>
+  <EntityType Name="tbl_SatinAlim">
+    <Key>
+      <PropertyRef Name="id_SatinAlim" />
+    </Key>
+    <Property Name="id_SatinAlim" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="satinAlimTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <Property Name="satinAlimMiktari" Type="Double" Nullable="false" />
+    <Property Name="id_Satici" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Kullanici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlim_tbl_Kullanici" FromRole="tbl_SatinAlim" ToRole="tbl_Kullanici" />
+    <NavigationProperty Name="tbl_Satici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlim_tbl_Satici" FromRole="tbl_SatinAlim" ToRole="tbl_Satici" />
+    <NavigationProperty Name="tbl_SatinAlimDetay" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlimDetay_tbl_SatinAlim" FromRole="tbl_SatinAlim" ToRole="tbl_SatinAlimDetay" />
+  </EntityType>
+  <EntityType Name="tbl_SatinAlimDetay">
+    <Key>
+      <PropertyRef Name="id_SatinAlimDetay" />
+    </Key>
+    <Property Name="id_SatinAlimDetay" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Kitap" Type="Int32" Nullable="false" />
+    <Property Name="id_SatinAlim" Type="Int32" Nullable="false" />
+    <Property Name="adet" Type="Int32" Nullable="false" />
+    <Property Name="birimFiyat" Type="Double" Nullable="false" />
+    <NavigationProperty Name="tbl_Kitap" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlimDetay_tbl_Kitap" FromRole="tbl_SatinAlimDetay" ToRole="tbl_Kitap" />
+    <NavigationProperty Name="tbl_SatinAlim" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlimDetay_tbl_SatinAlim" FromRole="tbl_SatinAlimDetay" ToRole="tbl_SatinAlim" />
+  </EntityType>
+  <EntityType Name="tbl_SatinAlinanDetay">
+    <Key>
+      <PropertyRef Name="id_SatinAlinan" />
+    </Key>
+    <Property Name="id_SatinAlinan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Kitap" Type="Int32" Nullable="false" />
+    <Property Name="adet" Type="Int32" Nullable="false" />
+    <Property Name="birimFiyat" Type="Double" Nullable="false" />
+    <NavigationProperty Name="tbl_Kitap" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlinanDetay_tbl_Kitap" FromRole="tbl_SatinAlinanDetay" ToRole="tbl_Kitap" />
+  </EntityType>
+  <EntityType Name="tbl_VerilenKitap">
+    <Key>
+      <PropertyRef Name="id_VerilenKitap" />
+    </Key>
+    <Property Name="id_VerilenKitap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_Kullanici" Type="Int32" Nullable="false" />
+    <Property Name="id_Calisan" Type="Int32" Nullable="false" />
+    <Property Name="id_Kitap" Type="Int32" Nullable="false" />
+    <Property Name="verilenKopya" Type="Int32" Nullable="false" />
+    <Property Name="verilisTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="donusTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="durum" Type="Boolean" Nullable="false" />
+    <Property Name="aciklama" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="rezerveKopya" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tbl_Calisan" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Calisan" FromRole="tbl_VerilenKitap" ToRole="tbl_Calisan" />
+    <NavigationProperty Name="tbl_Kitap" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap" FromRole="tbl_VerilenKitap" ToRole="tbl_Kitap" />
+    <NavigationProperty Name="tbl_Kitap1" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap1" FromRole="tbl_VerilenKitap" ToRole="tbl_Kitap" />
+    <NavigationProperty Name="tbl_Kitap2" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap2" FromRole="tbl_VerilenKitap" ToRole="tbl_Kitap" />
+    <NavigationProperty Name="tbl_Kullanici" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kullanici" FromRole="tbl_VerilenKitap" ToRole="tbl_Kullanici" />
+    <NavigationProperty Name="tbl_Kullanici1" Relationship="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kullanici1" FromRole="tbl_VerilenKitap" ToRole="tbl_Kullanici" />
+  </EntityType>
+  <Association Name="FK_tbl_Atama_tbl_Kullanici">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Atama" Role="tbl_Atama" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_Atama">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Calisan_tbl_Atama1">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Atama" Role="tbl_Atama" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Calisan" Role="tbl_Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Atama">
+        <PropertyRef Name="id_Atama" />
+      </Principal>
+      <Dependent Role="tbl_Calisan">
+        <PropertyRef Name="id_Atama" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Calisan_tbl_Departman">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Departman" Role="tbl_Departman" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Calisan" Role="tbl_Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Departman">
+        <PropertyRef Name="id_Departman" />
+      </Principal>
+      <Dependent Role="tbl_Calisan">
+        <PropertyRef Name="id_Departman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_KitapCeza_tbl_Calisan">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Calisan" Role="tbl_Calisan" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_KitapCeza" Role="tbl_KitapCeza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Calisan">
+        <PropertyRef Name="id_Calisan" />
+      </Principal>
+      <Dependent Role="tbl_KitapCeza">
+        <PropertyRef Name="id_Calisan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_KitapDonus_tbl_Calisan">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Calisan" Role="tbl_Calisan" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_KitapDonus" Role="tbl_KitapDonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Calisan">
+        <PropertyRef Name="id_Calisan" />
+      </Principal>
+      <Dependent Role="tbl_KitapDonus">
+        <PropertyRef Name="id_Calisan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kullanici_tbl_Calisan1">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Calisan" Role="tbl_Calisan" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Calisan">
+        <PropertyRef Name="id_Calisan" />
+      </Principal>
+      <Dependent Role="tbl_Kullanici">
+        <PropertyRef Name="id_Calisan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Calisan">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Calisan" Role="tbl_Calisan" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_VerilenKitap" Role="tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Calisan">
+        <PropertyRef Name="id_Calisan" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Calisan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Departman_tbl_Kullanici">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Departman" Role="tbl_Departman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_Departman">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kitap_tbl_Departman">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Departman" Role="tbl_Departman" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" Role="tbl_Kitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Departman">
+        <PropertyRef Name="id_Departman" />
+      </Principal>
+      <Dependent Role="tbl_Kitap">
+        <PropertyRef Name="id_Departman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kitap_tbl_KitapTipi">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_KitapTipi" Role="tbl_KitapTipi" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" Role="tbl_Kitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_KitapTipi">
+        <PropertyRef Name="id_KitapTipi" />
+      </Principal>
+      <Dependent Role="tbl_Kitap">
+        <PropertyRef Name="id_KitapTipi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kitap_tbl_Kullanici">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" Role="tbl_Kitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_Kitap">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlimDetay_tbl_Kitap">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" Role="tbl_Kitap" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlimDetay" Role="tbl_SatinAlimDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlimDetay">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlinanDetay_tbl_Kitap">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" Role="tbl_Kitap" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlinanDetay" Role="tbl_SatinAlinanDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlinanDetay">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kitap">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" Role="tbl_Kitap" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_VerilenKitap" Role="tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kitap1">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" Role="tbl_Kitap" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_VerilenKitap" Role="tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kitap2">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" Role="tbl_Kitap" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_VerilenKitap" Role="tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_KitapDonus_tbl_Kullanici">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_KitapDonus" Role="tbl_KitapDonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_KitapDonus">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_KitapDonus_tbl_Kullanici1">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_KitapDonus" Role="tbl_KitapDonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_KitapDonus">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kullanici_tbl_KullaniciTipi1">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_KullaniciTipi" Role="tbl_KullaniciTipi" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_KullaniciTipi">
+        <PropertyRef Name="id_KullaniciTipi" />
+      </Principal>
+      <Dependent Role="tbl_Kullanici">
+        <PropertyRef Name="id_KullaniciTipi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Satici_tbl_Kullanici">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Satici" Role="tbl_Satici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_Satici">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlim_tbl_Kullanici">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlim" Role="tbl_SatinAlim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlim">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kullanici">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_VerilenKitap" Role="tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kullanici1">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Role="tbl_Kullanici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_VerilenKitap" Role="tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlim_tbl_Satici">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_Satici" Role="tbl_Satici" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlim" Role="tbl_SatinAlim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Satici">
+        <PropertyRef Name="id_Satici" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlim">
+        <PropertyRef Name="id_Satici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlimDetay_tbl_SatinAlim">
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlim" Role="tbl_SatinAlim" Multiplicity="1" />
+    <End Type="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlimDetay" Role="tbl_SatinAlimDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_SatinAlim">
+        <PropertyRef Name="id_SatinAlim" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlimDetay">
+        <PropertyRef Name="id_SatinAlim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

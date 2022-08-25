@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f20ba525858e40fbac52755c4d074b7c" Name="Diagram1" ZoomLevel="40">
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Atama" Width="1.5" PointX="5.25" PointY="10.75" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Calisan" Width="1.5" PointX="10.5" PointY="8.25" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Departman" Width="1.5" PointX="5.25" PointY="7.875" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Kitap" Width="1.5" PointX="7.5" PointY="8.5" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_KitapCeza" Width="1.5" PointX="12.75" PointY="17.625" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_KitapDonus" Width="1.5" PointX="15.75" PointY="9.75" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_KitapTipi" Width="1.5" PointX="5.25" PointY="5.125" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Kullanici" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_KullaniciTipi" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_Satici" Width="1.5" PointX="5.25" PointY="13.75" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlim" Width="1.5" PointX="7.5" PointY="14.875" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlimDetay" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_SatinAlinanDetay" Width="1.5" PointX="9.75" PointY="14.125" />
+        <EntityTypeShape EntityType="KutuphaneOtomasyonSistemiDBModel.tbl_VerilenKitap" Width="1.5" PointX="12.75" PointY="6.25" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Atama_tbl_Kullanici" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Calisan_tbl_Atama1" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Calisan_tbl_Departman" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapCeza_tbl_Calisan" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Calisan" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kullanici_tbl_Calisan1" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Calisan" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Departman_tbl_Kullanici" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_Departman" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_KitapTipi" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kitap_tbl_Kullanici" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlimDetay_tbl_Kitap" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlinanDetay_tbl_Kitap" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap1" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kitap2" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Kullanici" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_KitapDonus_tbl_Kullanici1" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Kullanici_tbl_KullaniciTipi1" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_Satici_tbl_Kullanici" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlim_tbl_Kullanici" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kullanici" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_VerilenKitap_tbl_Kullanici1" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlim_tbl_Satici" />
+        <AssociationConnector Association="KutuphaneOtomasyonSistemiDBModel.FK_tbl_SatinAlimDetay_tbl_SatinAlim" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

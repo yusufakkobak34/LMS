@@ -1,0 +1,72 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_Calisan>
+
+@{
+    ViewBag.Title = "Tüm Çalışanlar";
+}
+
+@Html.ActionLink("Yeni Kayıt", "Create", null, new { @class = "btn btn-primary" })
+<hr />
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Kullanıcı Tipleri</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>                    
+                        <th>
+                           Çalışan
+                        </th>
+                        <th>
+                            Baba Adı
+                        </th>
+                        <th>
+                           İletişim No
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Adres
+                        </th>
+                        <th>
+                            Durum
+                        </th>                     
+                        <th>Eylemler</th>
+                    </tr>
+                    </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tamAdi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.babaAdi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.iletisimNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.adres)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.aktifMi)
+                            </td>                           
+                            <td>
+                                @Html.ActionLink("Düzenle", "Edit", new { id = item.id_Calisan }, new {@class="btn btn-info"}) |
+                                @Html.ActionLink("Detaylar", "Details", new { id = item.id_Calisan }, new {@class="btn btn-primary"}) 
+                                
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+        </div>
+</div>

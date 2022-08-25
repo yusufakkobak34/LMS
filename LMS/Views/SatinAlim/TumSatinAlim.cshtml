@@ -1,0 +1,58 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_SatinAlim>
+
+@{
+    ViewBag.Title = "Tüm Satın Alım";
+}
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Tüm Satın Alımlar</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Satıcı Adı
+                        </th>
+                        <th>
+                            Alım Tarihi
+                        </th>
+                        <th>
+                            Alım Miktarı
+                        </th>
+                        <th>
+                            Kullanıcı
+                        </th>
+                        <th>Eylemler</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Satici.adi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.satinAlimTarihi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.satinAlimMiktari)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tbl_Kullanici.kullaniciAdi)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Detaylar", "SatinAlimDetayView", new { id = item.id_SatinAlim }, new { @class = "btn btn-info" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ 

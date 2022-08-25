@@ -1,0 +1,31 @@
+﻿@model VeritabanıKatman.tbl_KitapTipi
+
+@{
+    ViewBag.Title = "Düzenle";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id_KitapTipi)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.isim,"Düzenle",htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.isim, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.isim, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Düzenle" class="btn btn-success" />
+                @Html.ActionLink("Geri Dön", "Index",null,new {@class="btn btn-default"})
+            </div>
+        </div>
+    </div>
+}
+

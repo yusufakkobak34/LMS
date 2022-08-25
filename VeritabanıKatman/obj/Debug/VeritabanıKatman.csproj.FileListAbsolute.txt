@@ -1,0 +1,12 @@
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\bin\Debug\VeritabanıKatman.dll
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\bin\Debug\VeritabanıKatman.pdb
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\obj\Debug\VeritabanıKatman.csproj.AssemblyReference.cache
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\obj\Debug\VeritabanıKatman.csproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\obj\Debug\VeritabanıKatman.dll
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\obj\Debug\VeritabanıKatman.pdb
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\bin\Debug\VeritabanıKatman.dll.config
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\bin\Debug\EntityFramework.dll
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\bin\Debug\EntityFramework.SqlServer.dll
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\bin\Debug\EntityFramework.xml
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\bin\Debug\EntityFramework.SqlServer.xml
+C:\inetpub\wwwroot\LMS\Application\LMS\VeritabanıKatman\obj\Debug\VeritabanıKatman.csproj.CopyComplete

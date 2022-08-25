@@ -1,0 +1,58 @@
+﻿@model VeritabanıKatman.tbl_Kullanici
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_Kullanici</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aktifMi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aktifMi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_Calisan.tamAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Calisan.tamAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_KullaniciTipi.kullaniciTipi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_KullaniciTipi.kullaniciTipi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Kullanici }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

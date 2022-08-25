@@ -1,0 +1,372 @@
+﻿@*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>*@
+
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Kütüphane Otomasyon Sistemi">
+    <meta name="author" content="Yusuf AKKOBAK">
+
+    <title>LMS - Ana Sayfa</title>
+
+    @* CSS Kütüphaneleri *@
+    <link href="~/Content/AdminTemplate/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/AdminTemplate/css/fonts.css" rel="stylesheet" />
+    <link href="~/Content/AdminTemplate/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="~/Content/AdminTemplate/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">LMS</div>
+            </a>
+
+            <hr class="sidebar-divider my-0">
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Kitap İşlemleri
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBook" aria-expanded="true" aria-controls="collapseBook">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Kitap Tipi</span>
+                </a>
+                <div id="collapseBook" class="collapse" aria-labelledby="headingBook" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Kitap Tipleri</h6>
+                        @Html.ActionLink("Yeni Kitap Tipi", "Create", "KitapTipi", null, new { @class = "collapse-item" })
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Kitap Tipi Listesi</h6>
+                        @Html.ActionLink("Kitap Tipleri", "Index", "KitapTipi", null, new { @class = "collapse-item" })
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBookReg" aria-expanded="true" aria-controls="collapseBookReg">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Kitap Kayıt</span>
+                </a>
+                <div id="collapseBookReg" class="collapse" aria-labelledby="headingBookReg" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Kitap Ekle</h6>
+                        @Html.ActionLink("Yeni Kitap", "Create", "Kitap", null, new { @class = "collapse-item" })
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Tüm Kitaplar</h6>
+                        @Html.ActionLink("Tüm Kitaplar", "Index", "Kitap", null, new { @class = "collapse-item" })
+                    </div>
+                </div>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBookIssue" aria-expanded="true" aria-controls="collapseBookIssue">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Ödünç Kitap</span>
+                </a>
+                <div id="collapseBookIssue" class="collapse" aria-labelledby="headingBookIssue" data-parent="#accordionSidebar">
+
+                    <div class="bg-white py-2 collapse-inner rounded">
+
+                        <h6 class="collapse-header">Verilen Kitap</h6>
+                        @Html.ActionLink("Kitap Ver", "Create", "VerilenKitap", null, new { @class = "collapse-item" })
+                        <h6 class="collapse-header">Verilen Tüm Kitaplar</h6>
+                        @Html.ActionLink("Verilen Tüm Kitaplar", "VerilenKitap", "VerilenKitap", null, new { @class = "collapse-item" })
+                        <h6 class="collapse-header">Rezerve Kitaplar</h6>
+                        @Html.ActionLink("Rezerve Kitaplar", "RezerveKitap", "VerilenKitap", null, new { @class = "collapse-item" })
+                        <h6 class="collapse-header">Dönüş Bekleyen Kitaplar</h6>
+                        @Html.ActionLink("Dönüş Bekleyen", "DonusBekleyenKitap", "VerilenKitap", null, new { @class = "collapse-item" })
+
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBookReturn" aria-expanded="true" aria-controls="collapseBookReturn">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Dönen Kitap</span>
+                </a>
+                <div id="collapseBookReturn" class="collapse" aria-labelledby="headingBookReturn" data-parent="#accordionSidebar">
+
+                    <div class="bg-white py-2 collapse-inner rounded">
+
+                        <h6 class="collapse-header">Verilen Kitap</h6>
+                        @Html.ActionLink("Dönme Onayı", "VerilenKitap", "VerilenKitap", null, new { @class = "collapse-item" })
+                        <h6 class="collapse-header">Dönen Tüm Kitaplar</h6>
+                        @Html.ActionLink("Dönen Kitap", "Index", "KitapDonus", null, new { @class = "collapse-item" })
+
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Satın Alma İşlemleri
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBookPur" aria-expanded="true" aria-controls="collapseBookPur">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Satın Alım</span>
+                </a>
+                <div id="collapseBookPur" class="collapse" aria-labelledby="headingBookPur" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Satıcı</h6>
+                        @Html.ActionLink("Tüm Satıcılar", "Index", "Satici", null, new { @class = "collapse-item" })
+                        <h6 class="collapse-header">Satın Alım</h6>
+                        @Html.ActionLink("Yeni Satın Alım", "YeniSatinAlim", "SatinAlim", null, new { @class = "collapse-item" })
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Satılanlar Listesi</h6>
+                        @Html.ActionLink("Tüm Satın Alımlar", "TumSatinAlim", "SatinAlim", null, new { @class = "collapse-item" })
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Çalışan İşlemleri
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Kayıt</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Yeni Kayıt</h6>
+                        @Html.ActionLink("Yeni Çalışan", "Create", "Calisan", null, new { @class = "collapse-item" })
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Tüm Çalışanlar</h6>
+                        @Html.ActionLink("Tüm Çalışanlar", "Index", "Calisan", null, new { @class = "collapse-item" })
+
+                    </div>
+                </div>
+            </li>
+
+
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Ayarlar
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Konfigürasyon</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Kullanıcı İşlemleri</h6>
+                        @Html.ActionLink("Kullanıcı Tipleri", "Index", "KullaniciTipi", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Kullanıcı Kayıt", "Create", "Kullanici", null, new { @class = "collapse-item" })
+                    </div>
+                </div>
+
+
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBC" aria-expanded="true" aria-controls="collapseBC">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Temel Konfigürasyon</span>
+                </a>
+                <div id="collapseBC" class="collapse" aria-labelledby="headingBC" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Atama</h6>
+                        @Html.ActionLink("Yeni Atama", "Create", "Atama", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Tüm Atamalar", "Index", "Atama", null, new { @class = "collapse-item" })
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Departman</h6>
+                        @Html.ActionLink("Yeni Departman", "Create", "Departman", null, new { @class = "collapse-item" })
+                        @Html.ActionLink("Tüm Departmanlar", "Index", "Departman", null, new { @class = "collapse-item" })
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <div id="content">
+
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Ara..." aria-label="Ara" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Yusuf AKKOBAK</span>
+                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Ayarlar
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Aktivite Kaydı
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Çıkış Yap
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">@ViewBag.Title</h1>
+                    </div>
+                    @RenderBody()
+                </div>
+            </div>
+
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Kütüphane Otomasyon Sistemi</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Çıkış Yap</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Çıkış yapmak istediğinize emin misiniz ?</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">İptal</button>
+                        @Html.ActionLink("Çıkış Yap", "Logout", "Home", null, new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @* JS Kütüphaneleri *@
+    <script src="~/Content/AdminTemplate/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/AdminTemplate/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/AdminTemplate/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Content/AdminTemplate/js/sb-admin-2.min.js"></script>
+    <script src="~/Content/AdminTemplate/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/Content/AdminTemplate/js/demo/chart-area-demo.js"></script>
+    <script src="~/Content/AdminTemplate/js/demo/chart-pie-demo.js"></script>
+    <script src="~/Content/AdminTemplate/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/AdminTemplate/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/AdminTemplate/js/demo/datatables-demo.js"></script>
+
+</body>
+</html>
+

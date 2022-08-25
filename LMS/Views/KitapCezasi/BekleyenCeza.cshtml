@@ -1,0 +1,69 @@
+﻿@model IEnumerable<VeritabanıKatman.tbl_KitapCeza>
+
+@{
+    ViewBag.Title = "BekleyenCeza";
+}
+
+<h2>BekleyenCeza</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_Kitap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_Kullanici)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cezaTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cezaMiktar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kalanMiktar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kalanGun)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_Calisan.tamAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_Kitap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_Kullanici)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cezaTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cezaMiktar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kalanMiktar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kalanGun)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_Calisan.tamAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_KitapCeza }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_KitapCeza }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_KitapCeza })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,42 @@
+﻿@model VeritabanıKatman.tbl_Atama
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_Atama</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.isim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.olcu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.olcu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_Kullanici.kullaniciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Kullanici.kullaniciAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Atama }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,120 @@
+﻿@model VeritabanıKatman.tbl_Kitap
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tbl_Kitap</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.kitapBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kitapBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kisaAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kisaAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yazar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yazar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kitapAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kitapAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edisyon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edisyon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.toplamKopya)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.toplamKopya)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kayitTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kayitTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_Departman.adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Departman.adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_KitapTipi.isim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_KitapTipi.isim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_Kullanici.kullaniciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Kullanici.kullaniciAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

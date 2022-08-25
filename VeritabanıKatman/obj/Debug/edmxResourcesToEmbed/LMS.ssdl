@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KutuphaneOtomasyonSistemiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Atama">
+    <Key>
+      <PropertyRef Name="id_Atama" />
+    </Key>
+    <Property Name="id_Atama" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="isim" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+    <Property Name="olcu" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Calisan">
+    <Key>
+      <PropertyRef Name="id_Calisan" />
+    </Key>
+    <Property Name="id_Calisan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+    <Property Name="tamAdi" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="babaAdi" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="iletisimNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="adres" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="id_Atama" Type="int" Nullable="false" />
+    <Property Name="id_Departman" Type="int" Nullable="false" />
+    <Property Name="aktifMi" Type="bit" Nullable="false" />
+    <Property Name="aciklama" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Departman">
+    <Key>
+      <PropertyRef Name="id_Departman" />
+    </Key>
+    <Property Name="id_Departman" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adi" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Kitap">
+    <Key>
+      <PropertyRef Name="id_Kitap" />
+    </Key>
+    <Property Name="id_Kitap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+    <Property Name="id_Departman" Type="int" Nullable="false" />
+    <Property Name="id_KitapTipi" Type="int" Nullable="false" />
+    <Property Name="kitapBaslik" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="kisaAciklama" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="yazar" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="kitapAdi" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="edisyon" Type="float" Nullable="false" />
+    <Property Name="toplamKopya" Type="int" Nullable="false" />
+    <Property Name="kayitTarihi" Type="date" Nullable="false" />
+    <Property Name="fiyat" Type="float" Nullable="false" />
+    <Property Name="aciklama" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_KitapCeza">
+    <Key>
+      <PropertyRef Name="id_KitapCeza" />
+    </Key>
+    <Property Name="id_KitapCeza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Calisan" Type="int" Nullable="false" />
+    <Property Name="id_Kitap" Type="int" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+    <Property Name="cezaTarihi" Type="date" Nullable="false" />
+    <Property Name="cezaMiktar" Type="float" Nullable="false" />
+    <Property Name="kalanMiktar" Type="float" Nullable="false" />
+    <Property Name="kalanGun" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_KitapDonus">
+    <Key>
+      <PropertyRef Name="id_KitapDonus" />
+    </Key>
+    <Property Name="id_KitapDonus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+    <Property Name="id_Kitap" Type="int" Nullable="false" />
+    <Property Name="id_Calisan" Type="int" Nullable="false" />
+    <Property Name="verilisTarihi" Type="date" Nullable="false" />
+    <Property Name="donusTarihi" Type="date" Nullable="false" />
+    <Property Name="gecerliTarih" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_KitapTipi">
+    <Key>
+      <PropertyRef Name="id_KitapTipi" />
+    </Key>
+    <Property Name="id_KitapTipi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="isim" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Kullanici">
+    <Key>
+      <PropertyRef Name="id_Kullanici" />
+    </Key>
+    <Property Name="id_Kullanici" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_KullaniciTipi" Type="int" Nullable="false" />
+    <Property Name="kullaniciAdi" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_Calisan" Type="int" Nullable="false" />
+    <Property Name="aktifMi" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_KullaniciTipi">
+    <Key>
+      <PropertyRef Name="id_KullaniciTipi" />
+    </Key>
+    <Property Name="id_KullaniciTipi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullaniciTipi" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Satici">
+    <Key>
+      <PropertyRef Name="id_Satici" />
+    </Key>
+    <Property Name="id_Satici" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+    <Property Name="iletisimNo" Type="int" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="aciklama" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_SatinAlim">
+    <Key>
+      <PropertyRef Name="id_SatinAlim" />
+    </Key>
+    <Property Name="id_SatinAlim" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="satinAlimTarihi" Type="date" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+    <Property Name="satinAlimMiktari" Type="float" Nullable="false" />
+    <Property Name="id_Satici" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_SatinAlimDetay">
+    <Key>
+      <PropertyRef Name="id_SatinAlimDetay" />
+    </Key>
+    <Property Name="id_SatinAlimDetay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Kitap" Type="int" Nullable="false" />
+    <Property Name="id_SatinAlim" Type="int" Nullable="false" />
+    <Property Name="adet" Type="int" Nullable="false" />
+    <Property Name="birimFiyat" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_SatinAlinanDetay">
+    <Key>
+      <PropertyRef Name="id_SatinAlinan" />
+    </Key>
+    <Property Name="id_SatinAlinan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Kitap" Type="int" Nullable="false" />
+    <Property Name="adet" Type="int" Nullable="false" />
+    <Property Name="birimFiyat" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_VerilenKitap">
+    <Key>
+      <PropertyRef Name="id_VerilenKitap" />
+    </Key>
+    <Property Name="id_VerilenKitap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Kullanici" Type="int" Nullable="false" />
+    <Property Name="id_Calisan" Type="int" Nullable="false" />
+    <Property Name="id_Kitap" Type="int" Nullable="false" />
+    <Property Name="verilenKopya" Type="int" Nullable="false" />
+    <Property Name="verilisTarihi" Type="date" Nullable="false" />
+    <Property Name="donusTarihi" Type="date" Nullable="false" />
+    <Property Name="durum" Type="bit" Nullable="false" />
+    <Property Name="aciklama" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="rezerveKopya" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbl_Atama_tbl_Kullanici">
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="1" />
+    <End Role="tbl_Atama" Type="Self.tbl_Atama" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_Atama">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Calisan_tbl_Atama1">
+    <End Role="tbl_Atama" Type="Self.tbl_Atama" Multiplicity="1" />
+    <End Role="tbl_Calisan" Type="Self.tbl_Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Atama">
+        <PropertyRef Name="id_Atama" />
+      </Principal>
+      <Dependent Role="tbl_Calisan">
+        <PropertyRef Name="id_Atama" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Calisan_tbl_Departman">
+    <End Role="tbl_Departman" Type="Self.tbl_Departman" Multiplicity="1" />
+    <End Role="tbl_Calisan" Type="Self.tbl_Calisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Departman">
+        <PropertyRef Name="id_Departman" />
+      </Principal>
+      <Dependent Role="tbl_Calisan">
+        <PropertyRef Name="id_Departman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Departman_tbl_Kullanici">
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="1" />
+    <End Role="tbl_Departman" Type="Self.tbl_Departman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_Departman">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kitap_tbl_Departman">
+    <End Role="tbl_Departman" Type="Self.tbl_Departman" Multiplicity="1" />
+    <End Role="tbl_Kitap" Type="Self.tbl_Kitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Departman">
+        <PropertyRef Name="id_Departman" />
+      </Principal>
+      <Dependent Role="tbl_Kitap">
+        <PropertyRef Name="id_Departman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kitap_tbl_KitapTipi">
+    <End Role="tbl_KitapTipi" Type="Self.tbl_KitapTipi" Multiplicity="1" />
+    <End Role="tbl_Kitap" Type="Self.tbl_Kitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_KitapTipi">
+        <PropertyRef Name="id_KitapTipi" />
+      </Principal>
+      <Dependent Role="tbl_Kitap">
+        <PropertyRef Name="id_KitapTipi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kitap_tbl_Kullanici">
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="1" />
+    <End Role="tbl_Kitap" Type="Self.tbl_Kitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_Kitap">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_KitapCeza_tbl_Calisan">
+    <End Role="tbl_Calisan" Type="Self.tbl_Calisan" Multiplicity="1" />
+    <End Role="tbl_KitapCeza" Type="Self.tbl_KitapCeza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Calisan">
+        <PropertyRef Name="id_Calisan" />
+      </Principal>
+      <Dependent Role="tbl_KitapCeza">
+        <PropertyRef Name="id_Calisan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_KitapDonus_tbl_Calisan">
+    <End Role="tbl_Calisan" Type="Self.tbl_Calisan" Multiplicity="1" />
+    <End Role="tbl_KitapDonus" Type="Self.tbl_KitapDonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Calisan">
+        <PropertyRef Name="id_Calisan" />
+      </Principal>
+      <Dependent Role="tbl_KitapDonus">
+        <PropertyRef Name="id_Calisan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_KitapDonus_tbl_Kullanici">
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="1" />
+    <End Role="tbl_KitapDonus" Type="Self.tbl_KitapDonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_KitapDonus">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_KitapDonus_tbl_Kullanici1">
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="1" />
+    <End Role="tbl_KitapDonus" Type="Self.tbl_KitapDonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_KitapDonus">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kullanici_tbl_Calisan1">
+    <End Role="tbl_Calisan" Type="Self.tbl_Calisan" Multiplicity="1" />
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Calisan">
+        <PropertyRef Name="id_Calisan" />
+      </Principal>
+      <Dependent Role="tbl_Kullanici">
+        <PropertyRef Name="id_Calisan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Kullanici_tbl_KullaniciTipi1">
+    <End Role="tbl_KullaniciTipi" Type="Self.tbl_KullaniciTipi" Multiplicity="1" />
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_KullaniciTipi">
+        <PropertyRef Name="id_KullaniciTipi" />
+      </Principal>
+      <Dependent Role="tbl_Kullanici">
+        <PropertyRef Name="id_KullaniciTipi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Satici_tbl_Kullanici">
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="1" />
+    <End Role="tbl_Satici" Type="Self.tbl_Satici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_Satici">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlim_tbl_Kullanici">
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="1" />
+    <End Role="tbl_SatinAlim" Type="Self.tbl_SatinAlim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlim">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlim_tbl_Satici">
+    <End Role="tbl_Satici" Type="Self.tbl_Satici" Multiplicity="1" />
+    <End Role="tbl_SatinAlim" Type="Self.tbl_SatinAlim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Satici">
+        <PropertyRef Name="id_Satici" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlim">
+        <PropertyRef Name="id_Satici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlimDetay_tbl_Kitap">
+    <End Role="tbl_Kitap" Type="Self.tbl_Kitap" Multiplicity="1" />
+    <End Role="tbl_SatinAlimDetay" Type="Self.tbl_SatinAlimDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlimDetay">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlimDetay_tbl_SatinAlim">
+    <End Role="tbl_SatinAlim" Type="Self.tbl_SatinAlim" Multiplicity="1" />
+    <End Role="tbl_SatinAlimDetay" Type="Self.tbl_SatinAlimDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_SatinAlim">
+        <PropertyRef Name="id_SatinAlim" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlimDetay">
+        <PropertyRef Name="id_SatinAlim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SatinAlinanDetay_tbl_Kitap">
+    <End Role="tbl_Kitap" Type="Self.tbl_Kitap" Multiplicity="1" />
+    <End Role="tbl_SatinAlinanDetay" Type="Self.tbl_SatinAlinanDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_SatinAlinanDetay">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Calisan">
+    <End Role="tbl_Calisan" Type="Self.tbl_Calisan" Multiplicity="1" />
+    <End Role="tbl_VerilenKitap" Type="Self.tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Calisan">
+        <PropertyRef Name="id_Calisan" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Calisan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kitap">
+    <End Role="tbl_Kitap" Type="Self.tbl_Kitap" Multiplicity="1" />
+    <End Role="tbl_VerilenKitap" Type="Self.tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kitap1">
+    <End Role="tbl_Kitap" Type="Self.tbl_Kitap" Multiplicity="1" />
+    <End Role="tbl_VerilenKitap" Type="Self.tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kitap2">
+    <End Role="tbl_Kitap" Type="Self.tbl_Kitap" Multiplicity="1" />
+    <End Role="tbl_VerilenKitap" Type="Self.tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kitap">
+        <PropertyRef Name="id_Kitap" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kullanici">
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="1" />
+    <End Role="tbl_VerilenKitap" Type="Self.tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_VerilenKitap_tbl_Kullanici1">
+    <End Role="tbl_Kullanici" Type="Self.tbl_Kullanici" Multiplicity="1" />
+    <End Role="tbl_VerilenKitap" Type="Self.tbl_VerilenKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Kullanici">
+        <PropertyRef Name="id_Kullanici" />
+      </Principal>
+      <Dependent Role="tbl_VerilenKitap">
+        <PropertyRef Name="id_Kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KutuphaneOtomasyonSistemiDBModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Atama" EntityType="Self.tbl_Atama" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Calisan" EntityType="Self.tbl_Calisan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Departman" EntityType="Self.tbl_Departman" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Kitap" EntityType="Self.tbl_Kitap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_KitapCeza" EntityType="Self.tbl_KitapCeza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_KitapDonus" EntityType="Self.tbl_KitapDonus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_KitapTipi" EntityType="Self.tbl_KitapTipi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Kullanici" EntityType="Self.tbl_Kullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_KullaniciTipi" EntityType="Self.tbl_KullaniciTipi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Satici" EntityType="Self.tbl_Satici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SatinAlim" EntityType="Self.tbl_SatinAlim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SatinAlimDetay" EntityType="Self.tbl_SatinAlimDetay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SatinAlinanDetay" EntityType="Self.tbl_SatinAlinanDetay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_VerilenKitap" EntityType="Self.tbl_VerilenKitap" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_Atama_tbl_Kullanici" Association="Self.FK_tbl_Atama_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_Atama" EntitySet="tbl_Atama" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Calisan_tbl_Atama1" Association="Self.FK_tbl_Calisan_tbl_Atama1">
+      <End Role="tbl_Atama" EntitySet="tbl_Atama" />
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Calisan_tbl_Departman" Association="Self.FK_tbl_Calisan_tbl_Departman">
+      <End Role="tbl_Departman" EntitySet="tbl_Departman" />
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Departman_tbl_Kullanici" Association="Self.FK_tbl_Departman_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_Departman" EntitySet="tbl_Departman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kitap_tbl_Departman" Association="Self.FK_tbl_Kitap_tbl_Departman">
+      <End Role="tbl_Departman" EntitySet="tbl_Departman" />
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kitap_tbl_KitapTipi" Association="Self.FK_tbl_Kitap_tbl_KitapTipi">
+      <End Role="tbl_KitapTipi" EntitySet="tbl_KitapTipi" />
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kitap_tbl_Kullanici" Association="Self.FK_tbl_Kitap_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_KitapCeza_tbl_Calisan" Association="Self.FK_tbl_KitapCeza_tbl_Calisan">
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+      <End Role="tbl_KitapCeza" EntitySet="tbl_KitapCeza" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_KitapDonus_tbl_Calisan" Association="Self.FK_tbl_KitapDonus_tbl_Calisan">
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+      <End Role="tbl_KitapDonus" EntitySet="tbl_KitapDonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_KitapDonus_tbl_Kullanici" Association="Self.FK_tbl_KitapDonus_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_KitapDonus" EntitySet="tbl_KitapDonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_KitapDonus_tbl_Kullanici1" Association="Self.FK_tbl_KitapDonus_tbl_Kullanici1">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_KitapDonus" EntitySet="tbl_KitapDonus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kullanici_tbl_Calisan1" Association="Self.FK_tbl_Kullanici_tbl_Calisan1">
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Kullanici_tbl_KullaniciTipi1" Association="Self.FK_tbl_Kullanici_tbl_KullaniciTipi1">
+      <End Role="tbl_KullaniciTipi" EntitySet="tbl_KullaniciTipi" />
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Satici_tbl_Kullanici" Association="Self.FK_tbl_Satici_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_Satici" EntitySet="tbl_Satici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlim_tbl_Kullanici" Association="Self.FK_tbl_SatinAlim_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_SatinAlim" EntitySet="tbl_SatinAlim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlim_tbl_Satici" Association="Self.FK_tbl_SatinAlim_tbl_Satici">
+      <End Role="tbl_Satici" EntitySet="tbl_Satici" />
+      <End Role="tbl_SatinAlim" EntitySet="tbl_SatinAlim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlimDetay_tbl_Kitap" Association="Self.FK_tbl_SatinAlimDetay_tbl_Kitap">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_SatinAlimDetay" EntitySet="tbl_SatinAlimDetay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlimDetay_tbl_SatinAlim" Association="Self.FK_tbl_SatinAlimDetay_tbl_SatinAlim">
+      <End Role="tbl_SatinAlim" EntitySet="tbl_SatinAlim" />
+      <End Role="tbl_SatinAlimDetay" EntitySet="tbl_SatinAlimDetay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SatinAlinanDetay_tbl_Kitap" Association="Self.FK_tbl_SatinAlinanDetay_tbl_Kitap">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_SatinAlinanDetay" EntitySet="tbl_SatinAlinanDetay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Calisan" Association="Self.FK_tbl_VerilenKitap_tbl_Calisan">
+      <End Role="tbl_Calisan" EntitySet="tbl_Calisan" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kitap" Association="Self.FK_tbl_VerilenKitap_tbl_Kitap">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kitap1" Association="Self.FK_tbl_VerilenKitap_tbl_Kitap1">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kitap2" Association="Self.FK_tbl_VerilenKitap_tbl_Kitap2">
+      <End Role="tbl_Kitap" EntitySet="tbl_Kitap" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kullanici" Association="Self.FK_tbl_VerilenKitap_tbl_Kullanici">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_VerilenKitap_tbl_Kullanici1" Association="Self.FK_tbl_VerilenKitap_tbl_Kullanici1">
+      <End Role="tbl_Kullanici" EntitySet="tbl_Kullanici" />
+      <End Role="tbl_VerilenKitap" EntitySet="tbl_VerilenKitap" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

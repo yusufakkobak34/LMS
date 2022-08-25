@@ -1,0 +1,34 @@
+﻿@model VeritabanıKatman.tbl_KitapTipi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_KitapTipi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.isim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_Kullanici)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_Kullanici)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_KitapTipi }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
